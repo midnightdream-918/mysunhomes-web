@@ -1,0 +1,90 @@
+@import 'tailwindcss';
+
+/* Same palette as the resident app (mysunhomes-app/src/theme). */
+@theme {
+  --font-sans: 'Be Vietnam Pro', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  --color-bg: #fbf7f1;
+  --color-bg-deep: #f4ece1;
+  --color-surface: #ffffff;
+  --color-surface-warm: #faf4eb;
+  --color-ink: #1e1913;
+  --color-ink-soft: #4a4138;
+  --color-muted: #8c8174;
+  --color-faint: #b8aea1;
+  --color-line: #ede4d7;
+  --color-line-strong: #dfd3c3;
+
+  --color-primary: #f2a516;
+  --color-primary-pressed: #de940b;
+  --color-primary-soft: #fdf0d5;
+  --color-gold: #b9770e;
+
+  --color-terracotta: #c66a3d;
+  --color-terracotta-soft: #f8e6dc;
+  --color-sage: #5f8a6b;
+  --color-sage-soft: #e5efe7;
+  --color-slate: #4e6a86;
+  --color-slate-soft: #e3eaf1;
+  --color-rose: #b9474a;
+  --color-rose-soft: #f7e2e2;
+  --color-plum: #7c5c8a;
+  --color-plum-soft: #eee6f1;
+
+  --shadow-soft: 0 4px 14px rgba(90, 63, 28, 0.06);
+  --shadow-card: 0 8px 28px rgba(90, 63, 28, 0.08);
+  --shadow-pop: 0 24px 60px rgba(90, 63, 28, 0.18);
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+  /* Generous line height keeps stacked Vietnamese diacritics from colliding. */
+  line-height: 1.55;
+}
+
+button {
+  cursor: pointer;
+}
+button:disabled {
+  cursor: not-allowed;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+::selection {
+  background: var(--color-primary-soft);
+}
+
+/* Thin warm scrollbars */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-line-strong) transparent;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+}
+@keyframes slide-in {
+  from { transform: translateX(24px); opacity: 0; }
+}
+@keyframes pop-in {
+  from { transform: translateY(8px) scale(0.98); opacity: 0; }
+}
+.anim-fade { animation: fade-in 0.15s ease-out; }
+.anim-slide { animation: slide-in 0.2s ease-out; }
+.anim-pop { animation: pop-in 0.18s ease-out; }
+
+.tabular { font-variant-numeric: tabular-nums; }
